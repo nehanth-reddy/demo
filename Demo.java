@@ -1,19 +1,49 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+class A extends Thread
+{
+    public void run()
+    {
+        for(int i=1;i<100;i++)
+        {
+            System.out.println("hi");
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+}
+
+class B extends Thread
+{
+    public void run()
+    {
+        for(int i=1;i<100;i++)
+        {
+            System.out.println("hello");
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
 
 public class Demo {
-    public static void main(String[] args) throws NumberFormatException, IOException 
+    public static void main(String[] args)
     {
-
-        int num = 0;
-        try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in))
-        )
-        {
-            
-            num = Integer.parseInt(br.readLine());
-            System.out.println(num);
+        A obj1 = new A();
+        B obj2 = new B();
+       
+        obj1.start();
+        try {
+            Thread.sleep(2);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
+        obj2.start();
     }
     
 
