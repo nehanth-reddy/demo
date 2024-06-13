@@ -7,17 +7,12 @@ public class Demo {
     {
 
         int num = 0;
-        BufferedReader br = null;
-        try 
+        try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in))
+        )
         {
-            InputStreamReader in = new InputStreamReader(System.in);
-            br = new BufferedReader(in);
+            
             num = Integer.parseInt(br.readLine());
             System.out.println(num);
-        }
-       
-        finally {
-            br.close();
         }
     }
     
