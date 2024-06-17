@@ -1,30 +1,28 @@
-
+class Counter
+{
+    int Count;
+    public synchronized void increment()
+    {
+        Count++;
+    }
+}
 
 public class Demo {
-    public static void main(String[] args)
+    public static void main(String[] args) throws InterruptedException
     {
+        Counter c = new Counter();
         Runnable obj1 = () ->
         {
-            for(int i=1;i<5;i++)
+            for(int i=1;i<=1000;i++)
             {
-                System.out.println("hi");
-                try {
-                    Thread.sleep(10);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+               c.increment();
             }
         };
         Runnable obj2 = () ->
         {
-            for(int i=1;i<5;i++)
+            for(int i=1;i<=1000;i++)
             {
-                System.out.println("hi");
-                try {
-                    Thread.sleep(10);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+               c.increment();
             }
         };
 
@@ -33,6 +31,10 @@ public class Demo {
         
         t1.start();
         t2.start();
+
+        t1.join();
+        t2.join();
+        System.out.println(c.Count);
     }
     
 
