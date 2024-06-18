@@ -7,9 +7,9 @@ public class Demo {
         List<Integer> nums = Arrays.asList(4,5,6,7,8);
 
         
-        for(int i=0;i<nums.size();i++)
+        for(int n : nums)
         {
-            System.out.println(nums.get(i));
+            System.out.println(n);
         }
         
     }
