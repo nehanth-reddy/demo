@@ -18,7 +18,10 @@ class Student implements Comparable<Student>
         this.name = name;
     }
     public int compareTo(Student that) {
-        return 0;
+    if(this.age > that.age)
+        return 1;
+    else
+        return -1;
     }
 
     
@@ -48,7 +51,7 @@ public class Demo {
        studs.add(new Student(13, "alex"));
        studs.add(new Student(14, "tom"));
 
-       Collections.sort(studs);
+       Collections.sort(studs, com);
        for(Student s : studs)
        {
         System.out.println(s);
