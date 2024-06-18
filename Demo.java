@@ -1,23 +1,29 @@
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
 public class Demo {
     public static void main(String[] args) throws InterruptedException
     {
-       Map<String, Integer> students = new Hashtable<>();
 
-       students.put("Navin", 56);
-       students.put("Harsh", 23);
-       students.put("Sushil", 67);
-       students.put("Kiran", 92);
-       students.put("Kiran", 93);
+        Comparator<Integer> com = new Comparator<Integer>() {
+            public int compare(Integer i, Integer j)
+            {
+                if(i%10 > j%10)
+                    return 1;
+                else
+                    return -1;
+            }
+        };
+       List<Integer> nums = new ArrayList<>();
+       nums.add(432);
+       nums.add(895);
+       nums.add(64);
+       nums.add(378954);
 
-       System.out.println(students);
-
-       for(String key : students.keySet())
-       {
-        System.out.println(key + " : " + students.get(key));
-       }
+       Collections.sort(nums, com);
+       System.out.println(nums);
     }
     
 }
