@@ -1,23 +1,16 @@
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.TreeSet;
-
+import java.util.HashMap;
+import java.util.Map;
 public class Demo {
     public static void main(String[] args) throws InterruptedException
     {
-       Collection<Integer> nums = new TreeSet<Integer>();
-       nums.add(62); 
-       nums.add(54);
-       nums.add(82);
-       nums.add(21);
+       Map<String, Integer> students = new HashMap<>();
 
-       Iterator<Integer> values = nums.iterator();
-
-       while(values.hasNext()) 
-        
-       System.out.println(values.next()); 
-
+       students.put("Navin", 56);
+       students.put("Harsh", 23);
+       students.put("Sushil", 67);
+       students.put("Kiran", 92);
        
+       System.out.println(students.get("Harsh"));
     }
     
 }
