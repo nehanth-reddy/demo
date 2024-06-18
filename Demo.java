@@ -1,4 +1,5 @@
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.TreeSet;
 
 public class Demo {
@@ -10,12 +11,13 @@ public class Demo {
        nums.add(82);
        nums.add(21);
 
+       Iterator<Integer> values = nums.iterator();
 
+       while(values.hasNext()) 
+        
+       System.out.println(values.next()); 
 
-       for(int n : nums)
-       {
-            System.out.println(n);
-       }
+       
     }
     
 }
