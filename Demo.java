@@ -4,27 +4,20 @@ import java.util.Comparator;
 import java.util.List;
 
 
-class Student implements Comparable<Student>
+class Student
 {
     int age;
     String name;
 
     
-    public String toString() {
-        return "Student [age=" + age + ", name=" + name + "]";
-    }
     public Student(int age, String name) {
         this.age = age;
         this.name = name;
     }
-    public int compareTo(Student that) {
-    if(this.age > that.age)
-        return 1;
-    else
-        return -1;
-    }
-
     
+    public String toString() {
+        return "Student [age=" + age + ", name=" + name + "]";
+    }
 
 }
 
@@ -33,18 +26,11 @@ class Student implements Comparable<Student>
 
 
 public class Demo {
-    public static void main(String[] args) throws InterruptedException
+    public static void main(String[] args) 
     {
 
-        Comparator<Student> com = new Comparator<Student>() {
-            public int compare(Student i, Student j)
-            {
-                if(i.age > j.age)
-                    return 1;
-                else
-                    return -1;
-            }
-        };
+        Comparator<Student> com = (i, j) -> i.age > j.age?1:-1;
+            
        List<Student> studs = new ArrayList<>();
        studs.add(new Student(25, "nick"));
        studs.add(new Student(65, "nehanth"));
@@ -53,9 +39,8 @@ public class Demo {
 
        Collections.sort(studs, com);
        for(Student s : studs)
-       {
-        System.out.println(s);
-       }
+            System.out.println(s);
+       
     }
     
 }
