@@ -6,11 +6,7 @@ public class Demo {
     {
         List<Integer> nums = Arrays.asList(4,5,6,7,8);
 
-        
-        for(int n : nums)
-        {
-            System.out.println(n);
-        }
+        nums.forEach(n -> System.out.println(n));
         
     }
     
