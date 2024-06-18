@@ -6,17 +6,12 @@ public class Demo {
     {
         List<Integer> nums = Arrays.asList(4,5,6,7,8);
 
-        int sum = 0;
-        for(int n : nums)
+        
+        for(int i=0;i<nums.size();i++)
         {
-            if(n%2==0)
-            {
-                n = n*2;
-                sum = sum + n;
-            }
+            System.out.println(nums.get(i));
         }
-
-        System.out.println(sum);
+        
     }
     
 }
